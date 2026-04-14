@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Creativity Engine MCP — MEOK AI Labs. Bisociation, novelty scoring, QD archive, exploration."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json, os, random, math, hashlib
 from datetime import datetime, timezone
 from typing import Optional
@@ -21,8 +26,12 @@ _qd_archive = []  # Quality-Diversity archive
 DOMAINS = ["technology", "nature", "art", "science", "philosophy", "music", "mathematics", "literature", "cooking", "architecture", "psychology", "economics"]
 
 @mcp.tool()
-def find_bisociations(concept_a: str, concept_b: str, depth: int = 3) -> str:
+def find_bisociations(concept_a: str, concept_b: str, depth: int = 3, api_key: str = "") -> str:
     """Find creative bisociations between two concepts (Koestler's theory). Discovers hidden connections across domains."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     bridges = []
     for i in range(depth):
@@ -35,12 +44,16 @@ def find_bisociations(concept_a: str, concept_b: str, depth: int = 3) -> str:
         }
         bridges.append(bridge)
     bridges.sort(key=lambda x: x["novelty_score"], reverse=True)
-    return json.dumps({"concept_a": concept_a, "concept_b": concept_b, "bisociations": bridges,
-        "highest_novelty": bridges[0]["novelty_score"], "recommended_bridge": bridges[0]["bridge_domain"]}, indent=2)
+    return {"concept_a": concept_a, "concept_b": concept_b, "bisociations": bridges,
+        "highest_novelty": bridges[0]["novelty_score"], "recommended_bridge": bridges[0]["bridge_domain"]}
 
 @mcp.tool()
-def assess_creativity(idea: str) -> str:
+def assess_creativity(idea: str, api_key: str = "") -> str:
     """Score an idea across 5 creativity dimensions: novelty, utility, surprise, elegance, feasibility."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     words = idea.lower().split()
     scores = {
@@ -51,13 +64,17 @@ def assess_creativity(idea: str) -> str:
         "feasibility": round(random.uniform(0.4, 0.9), 2),
     }
     overall = round(sum(scores.values()) / len(scores), 2)
-    return json.dumps({"idea": idea[:100], "scores": scores, "overall": overall,
+    return {"idea": idea[:100], "scores": scores, "overall": overall,
         "classification": "breakthrough" if overall > 0.8 else "promising" if overall > 0.6 else "incremental" if overall > 0.4 else "needs_work",
-        "recommendation": f"Strongest in {max(scores, key=scores.get)}. Improve {min(scores, key=scores.get)}."}, indent=2)
+        "recommendation": f"Strongest in {max(scores, key=scores.get)}. Improve {min(scores, key=scores.get)}."}
 
 @mcp.tool()
-def compute_novelty(description: str, domain: str = "general") -> str:
+def compute_novelty(description: str, domain: str = "general", api_key: str = "") -> str:
     """Compute novelty score by comparing against known solutions in the QD archive."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     h = hashlib.md5(description.encode()).hexdigest()
     # Check archive for similar entries
@@ -65,11 +82,15 @@ def compute_novelty(description: str, domain: str = "general") -> str:
     novelty = 0.9 if not similar else round(max(0.1, 1.0 - len(similar) * 0.1), 2)
     entry = {"id": h[:8], "description": description[:100], "domain": domain, "novelty": novelty, "timestamp": datetime.now(timezone.utc).isoformat()}
     _qd_archive.append(entry)
-    return json.dumps({**entry, "archive_size": len(_qd_archive), "domain_entries": len(similar)}, indent=2)
+    return {**entry, "archive_size": len(_qd_archive), "domain_entries": len(similar)}
 
 @mcp.tool()
-def suggest_exploration(current_domain: str, goal: str = "innovation") -> str:
+def suggest_exploration(current_domain: str, goal: str = "innovation", api_key: str = "") -> str:
     """Suggest unexplored conceptual territories for creative exploration."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     adjacent = [d for d in DOMAINS if d != current_domain]
     random.shuffle(adjacent)
@@ -82,17 +103,21 @@ def suggest_exploration(current_domain: str, goal: str = "innovation") -> str:
             "estimated_novelty": round(random.uniform(0.5, 0.95), 2),
         })
     suggestions.sort(key=lambda x: x["estimated_novelty"], reverse=True)
-    return json.dumps({"current_domain": current_domain, "goal": goal, "suggestions": suggestions,
-        "highest_potential": suggestions[0]["domain"]}, indent=2)
+    return {"current_domain": current_domain, "goal": goal, "suggestions": suggestions,
+        "highest_potential": suggestions[0]["domain"]}
 
 @mcp.tool()
-def get_qd_archive_stats() -> str:
+def get_qd_archive_stats(api_key: str = "") -> str:
     """Get Quality-Diversity archive statistics."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     domains = defaultdict(int)
     for e in _qd_archive: domains[e.get("domain", "unknown")] += 1
     avg_novelty = sum(e.get("novelty", 0) for e in _qd_archive) / max(len(_qd_archive), 1)
-    return json.dumps({"total_entries": len(_qd_archive), "domains": dict(domains),
-        "average_novelty": round(avg_novelty, 2), "unique_domains": len(domains)}, indent=2)
+    return {"total_entries": len(_qd_archive), "domains": dict(domains),
+        "average_novelty": round(avg_novelty, 2), "unique_domains": len(domains)}
 
 if __name__ == "__main__":
     mcp.run()

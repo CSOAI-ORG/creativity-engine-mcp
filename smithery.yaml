@@ -1,8 +1,47 @@
 name: creativity-engine-mcp
-description: MEOK AI Labs — creativity engine
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/creativity-engine-mcp
-license: MIT
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: find_bisociations
+  description: Find creative bisociations between two concepts (Koestler's theory).
+    Discovers hidden connections across domains.
+  parameters:
+  - name: concept_a
+    type: string
+    required: true
+  - name: concept_b
+    type: string
+    required: true
+  - name: depth
+    type: integer
+    required: false
+- name: assess_creativity
+  description: 'Score an idea across 5 creativity dimensions: novelty, utility, surprise,
+    elegance, feasibility.'
+  parameters:
+  - name: idea
+    type: string
+    required: true
+- name: compute_novelty
+  description: Compute novelty score by comparing against known solutions in the QD
+    archive.
+  parameters:
+  - name: description
+    type: string
+    required: true
+  - name: domain
+    type: string
+    required: false
+- name: suggest_exploration
+  description: Suggest unexplored conceptual territories for creative exploration.
+  parameters:
+  - name: current_domain
+    type: string
+    required: true
+  - name: goal
+    type: string
+    required: false
+- name: get_qd_archive_stats
+  description: Get Quality-Diversity archive statistics.
+  parameters: []

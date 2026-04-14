@@ -1,1 +1,89 @@
-{"name":"creativity-engine-mcp","vendor":"MEOK AI Labs","homepage":"https://meok.ai","repository":"https://github.com/CSOAI-ORG/creativity-engine-mcp","runtime":"python","entrypoint":"server.py"}
+{
+  "name": "creativity-engine-mcp",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "find_bisociations",
+      "description": "Find creative bisociations between two concepts (Koestler's theory). Discovers hidden connections across domains.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "concept_a": {
+            "type": "string"
+          },
+          "concept_b": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "concept_a",
+          "concept_b"
+        ]
+      }
+    },
+    {
+      "name": "assess_creativity",
+      "description": "Score an idea across 5 creativity dimensions: novelty, utility, surprise, elegance, feasibility.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "idea": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idea"
+        ]
+      }
+    },
+    {
+      "name": "compute_novelty",
+      "description": "Compute novelty score by comparing against known solutions in the QD archive.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description"
+        ]
+      }
+    },
+    {
+      "name": "suggest_exploration",
+      "description": "Suggest unexplored conceptual territories for creative exploration.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "current_domain": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "current_domain"
+        ]
+      }
+    },
+    {
+      "name": "get_qd_archive_stats",
+      "description": "Get Quality-Diversity archive statistics.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    }
+  ]
+}
