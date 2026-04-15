@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 [project]
 name = "creativity-engine-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — creativity-engine-mcp"
+description = "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]

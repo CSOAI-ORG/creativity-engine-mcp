@@ -1,6 +1,6 @@
 {
   "name": "creativity-engine-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs \u2014 Creativity engine. Bisociation (Koestler), novelty scoring, quality-diversity archive",
+  "description": "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {

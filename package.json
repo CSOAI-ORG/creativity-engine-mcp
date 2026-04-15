@@ -1,1 +1,11 @@
-{"name":"creativity-engine-mcp","version":"1.0.0","description":"MEOK AI Labs — SOV3 Intelligence","author":"MEOK AI Labs","license":"MIT","repository":{"type":"git","url":"https://github.com/CSOAI-ORG/creativity-engine-mcp"}}
+{
+  "name": "creativity-engine-mcp",
+  "version": "1.0.0",
+  "description": "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs.",
+  "author": "MEOK AI Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/creativity-engine-mcp"
+  }
+}
