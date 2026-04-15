@@ -22,3 +22,6 @@ Repository = "https://github.com/CSOAI-ORG/creativity-engine-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+creativity_engine_mcp = "server:main"
