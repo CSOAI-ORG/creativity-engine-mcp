@@ -1,3 +1,5 @@
+[![creativity-engine-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/creativity-engine-mcp)](https://github.com/CSOAI-ORG/creativity-engine-mcp/stargazers)
