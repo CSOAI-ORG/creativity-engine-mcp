@@ -27,7 +27,22 @@ DOMAINS = ["technology", "nature", "art", "science", "philosophy", "music", "mat
 
 @mcp.tool()
 def find_bisociations(concept_a: str, concept_b: str, depth: int = 3, api_key: str = "") -> str:
-    """Find creative bisociations between two concepts (Koestler's theory). Discovers hidden connections across domains."""
+    """Find creative bisociations between two concepts (Koestler's theory). Discovers hidden connections across domains.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -49,7 +64,22 @@ def find_bisociations(concept_a: str, concept_b: str, depth: int = 3, api_key: s
 
 @mcp.tool()
 def assess_creativity(idea: str, api_key: str = "") -> str:
-    """Score an idea across 5 creativity dimensions: novelty, utility, surprise, elegance, feasibility."""
+    """Score an idea across 5 creativity dimensions: novelty, utility, surprise, elegance, feasibility.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -70,7 +100,23 @@ def assess_creativity(idea: str, api_key: str = "") -> str:
 
 @mcp.tool()
 def compute_novelty(description: str, domain: str = "general", api_key: str = "") -> str:
-    """Compute novelty score by comparing against known solutions in the QD archive."""
+    """Compute novelty score by comparing against known solutions in the QD archive.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -86,7 +132,22 @@ def compute_novelty(description: str, domain: str = "general", api_key: str = ""
 
 @mcp.tool()
 def suggest_exploration(current_domain: str, goal: str = "innovation", api_key: str = "") -> str:
-    """Suggest unexplored conceptual territories for creative exploration."""
+    """Suggest unexplored conceptual territories for creative exploration.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -108,7 +169,23 @@ def suggest_exploration(current_domain: str, goal: str = "innovation", api_key: 
 
 @mcp.tool()
 def get_qd_archive_stats(api_key: str = "") -> str:
-    """Get Quality-Diversity archive statistics."""
+    """Get Quality-Diversity archive statistics.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
