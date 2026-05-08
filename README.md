@@ -1,45 +1,59 @@
-[![creativity-engine-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp)
-[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
-[![PyPI](https://img.shields.io/pypi/v/creativity-engine-mcp)](https://pypi.org/project/creativity-engine-mcp/)
-
-[![creativity-engine-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/creativity-engine-mcp)
-
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/creativity-engine-mcp)](https://github.com/CSOAI-ORG/creativity-engine-mcp/stargazers)
+# Creativity Engine MCP
 
-# ucreativityU engineU mcp
+**MCP server for creativity engine mcp operations**
 
-**Creativity Engine MCP — MEOK AI Labs. Bisociation, novelty scoring, QD archive, exploration.**
-
-[![npm version](https://img.shields.io/npm/v/@meok-ai/creativity-engine-mcp)](https://www.npmjs.com/package/@meok-ai/creativity-engine-mcp)
+[![PyPI](https://img.shields.io/pypi/v/meok-creativity-engine-mcp)](https://pypi.org/project/meok-creativity-engine-mcp/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
-
-[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/creativity-engine-mcp/issues)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
 
 </div>
 
----
+## Overview
+
+Creativity Engine MCP provides AI-powered tools via the Model Context Protocol (MCP).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `find_bisociations` | Find creative bisociations between two concepts (Koestler's theory). Discovers h |
+| `assess_creativity` | Score an idea across 5 creativity dimensions: novelty, utility, surprise, elegan |
+| `compute_novelty` | Compute novelty score by comparing against known solutions in the QD archive. |
+| `suggest_exploration` | Suggest unexplored conceptual territories for creative exploration. |
+| `get_qd_archive_stats` | Get Quality-Diversity archive statistics. |
 
 ## Installation
 
 ```bash
-pip install creativity-engine-mcp
-# or
-npm install -g @meok-ai/creativity-engine-mcp
+pip install meok-creativity-engine-mcp
 ```
 
-## Quick Start
+## Usage with Claude Desktop
 
-See the project repository for full documentation and examples.
+Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
 
-## Enterprise Support
+```json
+{
+  "mcpServers": {
+    "creativity-engine": {
+      "command": "python",
+      "args": ["-m", "meok_creativity_engine_mcp.server"]
+    }
+  }
+}
+```
 
-- 📧 nicholas@csoai.org
-- 🌐 [CSOAI.org](https://csoai.org)
+## Usage with FastMCP
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# This server exposes 5 tool(s) via MCP
+# See server.py for full implementation
+```
 
 ## License
 
-MIT © [CSOAI](https://csoai.org)
-<!-- mcp-name: io.github.CSOAI-ORG/creativity-engine-mcp -->
+MIT © [MEOK AI Labs](https://meok.ai)
