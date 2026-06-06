@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Creativity Engine MCP — MEOK AI Labs. Bisociation, novelty scoring, QD archive, exploration."""
+"""
+Creativity Engine MCP — MEOK AI Labs. Bisociation, novelty scoring, QD archive, exploration."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json, os, random, math, hashlib
@@ -66,7 +66,7 @@ def find_bisociations(concept_a: str, concept_b: str, depth: int = 3, api_key: s
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     bridges = []
@@ -122,7 +122,7 @@ def assess_creativity(idea: str, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     words = idea.lower().split()
@@ -179,7 +179,7 @@ def compute_novelty(description: str, domain: str = "general", api_key: str = ""
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     h = hashlib.md5(description.encode()).hexdigest()
@@ -230,7 +230,7 @@ def suggest_exploration(current_domain: str, goal: str = "innovation", api_key: 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     adjacent = [d for d in DOMAINS if d != current_domain]
@@ -286,7 +286,7 @@ def get_qd_archive_stats(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     domains = defaultdict(int)
     for e in _qd_archive: domains[e.get("domain", "unknown")] += 1
@@ -294,5 +294,8 @@ def get_qd_archive_stats(api_key: str = "") -> str:
     return {"total_entries": len(_qd_archive), "domains": dict(domains),
         "average_novelty": round(avg_novelty, 2), "unique_domains": len(domains)}
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

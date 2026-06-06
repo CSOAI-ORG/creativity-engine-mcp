@@ -1,0 +1,28 @@
+{
+  "name": "creativity-engine-mcp",
+  "title": "Creativity Engine Mcp",
+  "description": "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "find_bisociations"
+    },
+    {
+      "name": "assess_creativity"
+    },
+    {
+      "name": "compute_novelty"
+    },
+    {
+      "name": "suggest_exploration"
+    },
+    {
+      "name": "get_qd_archive_stats"
+    }
+  ]
+}

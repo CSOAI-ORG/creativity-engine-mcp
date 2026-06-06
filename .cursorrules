@@ -1,0 +1,9 @@
+# creativity-engine-mcp - Auto-trigger Rules
+
+When the user asks about creativity engine, use creativity-engine-mcp tools: find_bisociations, assess_creativity, compute_novelty, suggest_exploration, get_qd_archive_stats
+
+**MCP server for creativity engine mcp operations**
+
+Install: `pip install creativity-engine-mcp`
+
+By MEOK AI Labs — MIT licensed.
