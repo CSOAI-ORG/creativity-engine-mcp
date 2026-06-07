@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "creativity-engine-mcp",
+    "description": "Creativity Engine MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "creativity-engine-mcp"
+      }
+    ],
+    "capabilities": [
+      "find_bisociations",
+      "assess_creativity",
+      "compute_novelty",
+      "suggest_exploration",
+      "get_qd_archive_stats"
+    ]
+  }
+}

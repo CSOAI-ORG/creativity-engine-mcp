@@ -1,0 +1,68 @@
+{
+  "name": "creativity-engine-mcp",
+  "description": "Creativity Engine MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/creativity-engine-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "find_bisociations",
+      "name": "Find Bisociations",
+      "description": "find_bisociations via creativity-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "assess_creativity",
+      "name": "Assess Creativity",
+      "description": "assess_creativity via creativity-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "compute_novelty",
+      "name": "Compute Novelty",
+      "description": "compute_novelty via creativity-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "suggest_exploration",
+      "name": "Suggest Exploration",
+      "description": "suggest_exploration via creativity-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_qd_archive_stats",
+      "name": "Get Qd Archive Stats",
+      "description": "get_qd_archive_stats via creativity-engine-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
