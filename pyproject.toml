@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "creativity-engine-mcp"
-version = "1.0.6"
+version = "1.0.9"
 readme = "README.md"
 description = "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs."
 license = {file = "LICENSE"}
