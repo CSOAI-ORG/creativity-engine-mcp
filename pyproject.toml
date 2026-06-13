@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 name = "creativity-engine-mcp"
 version = "1.0.9"
 readme = "README.md"
-description = "AI-powered creativity engine MCP server for agents. Supports find bisociations, assess creativity, compute novelty. By MEOK AI Labs."
+description = "Creativity Engine Mcp: find bisociations (Find creative bisociations between two concepts (Koestler's ); assess creativity (Score an idea across 5 creativity dimensions: novelty, utili); compute novelty (Compute novelty score by comparing against known solutions i); suggest exploration (Suggest unexplored conceptual territories for creative explo). pip install creativity-engine-mcp."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
