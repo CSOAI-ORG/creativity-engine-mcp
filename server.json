@@ -4,9 +4,8 @@
   "version": "1.0.9",
   "description": "Creativity Engine MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/creativity-engine-mcp",
-    "source": "https://github.com/CSOAI-ORG/creativity-engine-mcp"
+    "source": "github"
   },
   "packages": [
     {
