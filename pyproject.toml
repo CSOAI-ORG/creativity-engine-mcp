@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "creativity-engine-mcp"
-version = "1.0.9"
+version = "1.0.10"
 readme = "README.md"
 description = "Creativity Engine Mcp: find bisociations (Find creative bisociations between two concepts (Koestler's ); assess creativity (Score an idea across 5 creativity dimensions: novelty, utili); compute novelty (Compute novelty score by comparing against known solutions i); suggest exploration (Suggest unexplored conceptual territories for creative explo). pip install creativity-engine-mcp."
 license = {file = "LICENSE"}
@@ -26,3 +26,22 @@ only-include = ["server.py", "auth_middleware.py"]
 
 [project.scripts]
 creativity_engine_mcp = "server:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N"]
+ignore = ["E501"]
+
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_Configs = true
+disallow_untyped_defs = true
+
